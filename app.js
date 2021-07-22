@@ -1,5 +1,6 @@
 const mergeButton = document.getElementById("Merge");
 const bubbleButton = document.getElementById("Bubble");
+const insertionButton = document.getElementById("Insertion");
 const resetButton = document.getElementById("reset");
 
 // const mergeSort = require('./mergesort.js');
@@ -8,18 +9,30 @@ let arr = [];
 for (let i = 0; i < span.length; i++) {
     arr[i] = parseInt(span[i].innerText);
 }
+function disabling() {
+    mergeButton.disabled = true;
+    bubbleButton.disabled = true;
+    resetButton.disabled = true;
+    insertionButton.disabled = true;
+}
+function enabling() {
+    mergeButton.disabled = false;
+    bubbleButton.disabled = false;
+    resetButton.disabled = false;
+    insertionButton.disabled = false;
+}
 var delayInMilliseconds = 0;
 mergeButton.onclick = function () {
     mergeSorting();
-    mergeButton.disabled = true;
-    bubbleButton.disabled = true;
-    resetButton.disabled = true;
+    disabling();
 };
 bubbleButton.onclick = function () {
     bubbleSorting();
-    mergeButton.disabled = true;
-    bubbleButton.disabled = true;
-    resetButton.disabled = true;
+    disabling();
+};
+insertionButton.onclick = function () {
+    insertionSorting();
+    disabling();
 };
 
 resetButton.onclick = function () {

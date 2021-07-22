@@ -95,9 +95,7 @@ const mergeSorting = function () {
         for (let i = 0; i < span.length; i++) {
             span[i].style.backgroundColor = 'yellow';
         }
-        mergeButton.disabled = false;
-        bubbleButton.disabled = false;
-        resetButton.disabled = false;
+        enabling();
     }, delayInMilliseconds + 1000);
 }
 
