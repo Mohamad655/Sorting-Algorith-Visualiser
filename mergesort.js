@@ -2,18 +2,15 @@
 
 function func2() {
     var a = arr.slice(0);
-    for (let i = 0; i < a.length; i++) {
-        console.log(a[i]);
-    }
     setTimeout(function () {
         setTimeout(function () {
 
             for (let i = 0; i < a.length; i++) {
-                console.log(a[i]);
                 span[i].innerText = a[i];
+                span[i].setAttribute("style", `height:${a[i] * 4 + 10}px`);
             }
 
-        }, 500);
+        }, changedelay);
 
 
     }, delayInMilliseconds);
@@ -36,7 +33,7 @@ function merge(arr, l, m, r) {
     console.log(`${l} ${m} ${r}`)
     var n1 = m - l + 1;
     var n2 = r - m;
-    delayInMilliseconds += 1000;
+    delayInMilliseconds += increment;
     setcolor(l, m, r);
     var L = new Array(n1);
     var R = new Array(n2);
@@ -96,7 +93,7 @@ const mergeSorting = function () {
             span[i].style.backgroundColor = 'yellow';
         }
         enabling();
-    }, delayInMilliseconds + 1000);
+    }, delayInMilliseconds + increment);
 }
 
 

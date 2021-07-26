@@ -4,11 +4,19 @@ const insertionButton = document.getElementById("Insertion");
 const resetButton = document.getElementById("reset");
 
 // const mergeSort = require('./mergesort.js');
-const span = document.querySelectorAll("span");
+const parent = document.querySelector(".parent");
+parent.style = "flex-direction:row";
+const span = [];
 let arr = [];
-for (let i = 0; i < span.length; i++) {
-    arr[i] = parseInt(span[i].innerText);
+for (let i = 0; i < 16; i++) {
+    const iDiv = document.createElement('div');
+    parent.appendChild(iDiv);
+    span[i] = iDiv;
+    arr[i] = Math.floor(Math.random() * 90) + 10;
+    span[i].innerText = arr[i];
+    span[i].setAttribute("style", `height:${arr[i] * 4 + 10}px`);
 }
+
 function disabling() {
     mergeButton.disabled = true;
     bubbleButton.disabled = true;
@@ -22,6 +30,8 @@ function enabling() {
     insertionButton.disabled = false;
 }
 var delayInMilliseconds = 0;
+const increment = 500;
+const changedelay = 250;
 mergeButton.onclick = function () {
     mergeSorting();
     disabling();
@@ -37,8 +47,9 @@ insertionButton.onclick = function () {
 
 resetButton.onclick = function () {
     for (let i = 0; i < span.length; i++) {
-        arr[i] = Math.floor(Math.random() * 100);
+        arr[i] = Math.floor(Math.random() * 90) + 10;
         span[i].innerText = arr[i];
+        span[i].setAttribute("style", `height:${arr[i] * 3 + 10}px`);
     }
 
 }

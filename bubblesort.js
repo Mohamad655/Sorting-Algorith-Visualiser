@@ -2,18 +2,23 @@
 
 function func(i, j, a, b) {
     setTimeout(function () {
-        for (let i = 0; i < span.length; i++) {
-            span[i].style.backgroundColor = 'yellow';
-        }
+        for (let k = 0; k < span.length; k++) {
 
+            if (k !== i) {
+                span[k].style.backgroundColor = 'yellow';
+            }
+
+        }
         span[i].style.backgroundColor = 'red';
         span[j].style.backgroundColor = 'red';
         setTimeout(function () {
 
             span[i].innerText = a;
             span[j].innerText = b;
+            span[i].setAttribute("style", `height:${a * 4 + 10}px`);
+            span[j].setAttribute("style", `height:${b * 4 + 10}px`);
 
-        }, 500);
+        }, changedelay);
     }, delayInMilliseconds);
 }
 const bubbleSorting = function () {
@@ -24,7 +29,7 @@ const bubbleSorting = function () {
                 let x = arr[i];
                 arr[i] = arr[j];
                 arr[j] = x;
-                delayInMilliseconds += 1000;
+                delayInMilliseconds += increment;
                 func(i, j, arr[i], arr[j]);
             }
         }
@@ -34,5 +39,5 @@ const bubbleSorting = function () {
             span[i].style.backgroundColor = 'yellow';
         }
         enabling();
-    }, delayInMilliseconds + 1000);
+    }, delayInMilliseconds + increment);
 }

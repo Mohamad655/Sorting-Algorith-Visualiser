@@ -1,6 +1,6 @@
 
 function func3(j, key, x) {
-    delayInMilliseconds += 1000;
+    delayInMilliseconds += increment;
     setTimeout(function () {
         for (let i = 0; i < span.length; i++) {
             span[i].style.backgroundColor = 'yellow';
@@ -12,8 +12,10 @@ function func3(j, key, x) {
 
             span[j].innerText = key;
             span[j + 1].innerText = x;
+            span[j].setAttribute("style", `height:${key * 4 + 10}px`);
+            span[j + 1].setAttribute("style", `height:${x * 4 + 10}px`);
 
-        }, 500);
+        }, changedelay);
     }, delayInMilliseconds);
 }
 function insertionSort() {
@@ -37,5 +39,5 @@ const insertionSorting = function () {
             span[i].style.backgroundColor = 'yellow';
         }
         enabling();
-    }, delayInMilliseconds + 1000);
+    }, delayInMilliseconds + increment);
 }
