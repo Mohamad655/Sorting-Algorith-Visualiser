@@ -6,8 +6,7 @@ function func2() {
         setTimeout(function () {
 
             for (let i = 0; i < a.length; i++) {
-                span[i].innerText = a[i];
-                span[i].setAttribute("style", `height:${a[i] * 4 + 10}px`);
+                span[i].style.height = a[i] * 4 + 10 + 'px';
             }
 
         }, changedelay);
@@ -17,8 +16,8 @@ function func2() {
 }
 function setcolor(l, m, r) {
     setTimeout(function () {
-        for (let i = 0; i < span.length; i++) {
-            span[i].style.backgroundColor = 'yellow';
+        for (let i = 0; i < sizOfArray; i++) {
+            span[i].style.backgroundColor = 'cyan';
         }
         for (let i = l; i <= m; i++) {
             span[i].style.backgroundColor = 'red';
@@ -84,19 +83,15 @@ function mergeSort(arr, l, r) {
     mergeSort(arr, m + 1, r);
     merge(arr, l, m, r);
 }
-const n = arr.length;
 const mergeSorting = function () {
     delayInMilliseconds = 0;
-    mergeSort(arr, 0, n - 1);
+    mergeSort(arr, 0, sizOfArray- 1);
     setTimeout(function () {
-        for (let i = 0; i < span.length; i++) {
-            span[i].style.backgroundColor = 'yellow';
+        for (let i = 0; i < sizOfArray; i++) {
+            span[i].style.backgroundColor = 'cyan';
         }
         enabling();
     }, delayInMilliseconds + increment);
 }
 
 
-
-
-// module.exports.solve = solve;

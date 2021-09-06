@@ -3,19 +3,52 @@ const bubbleButton = document.getElementById("Bubble");
 const insertionButton = document.getElementById("Insertion");
 const resetButton = document.getElementById("reset");
 
-// const mergeSort = require('./mergesort.js');
+const speedInput = document.getElementById("Speed");
+const sizeInput = document.getElementById("blocks");
+
 const parent = document.querySelector(".parent");
 parent.style = "flex-direction:row";
-const span = [];
+
+let span = [];
 let arr = [];
-for (let i = 0; i < 16; i++) {
-    const iDiv = document.createElement('div');
-    parent.appendChild(iDiv);
-    span[i] = iDiv;
-    arr[i] = Math.floor(Math.random() * 90) + 10;
-    span[i].innerText = arr[i];
-    span[i].setAttribute("style", `height:${arr[i] * 4 + 10}px`);
+
+let sizOfArray=16;
+const parentWidth = parent.offsetWidth;
+
+generateArray();
+
+function generateArray(){
+    arr=[];
+    span=[];
+    while (parent.lastElementChild) {
+        parent.removeChild(parent.lastElementChild);
+    }
+    for (let i = 0; i < sizOfArray; i++) {
+        const iDiv = document.createElement('div');
+        parent.appendChild(iDiv);
+        span[i] = iDiv;
+        arr[i] = Math.floor(Math.random() * 90) + 10;
+        span[i].style.width = parentWidth/sizOfArray +'px';
+        span[i].style.height = arr[i] * 4 + 10 + 'px';
+        
+    }
 }
+
+
+var delayInMilliseconds = 0;
+let increment = 1010 - 100 * speedInput.value;
+let changedelay = increment/2;
+console.log(increment);
+speedInput.addEventListener("mouseup",function(){
+    increment=1010-100*speedInput.value;
+    changedelay = increment / 2;
+    console.log(increment);
+});
+
+sizeInput.addEventListener("mouseup", function () {
+    sizOfArray=sizeInput.value;
+    generateArray();
+});
 
 function disabling() {
     mergeButton.disabled = true;
@@ -29,9 +62,7 @@ function enabling() {
     resetButton.disabled = false;
     insertionButton.disabled = false;
 }
-var delayInMilliseconds = 0;
-const increment = 500;
-const changedelay = 250;
+
 mergeButton.onclick = function () {
     mergeSorting();
     disabling();
@@ -46,10 +77,5 @@ insertionButton.onclick = function () {
 };
 
 resetButton.onclick = function () {
-    for (let i = 0; i < span.length; i++) {
-        arr[i] = Math.floor(Math.random() * 90) + 10;
-        span[i].innerText = arr[i];
-        span[i].setAttribute("style", `height:${arr[i] * 3 + 10}px`);
-    }
-
+    generateArray();
 }

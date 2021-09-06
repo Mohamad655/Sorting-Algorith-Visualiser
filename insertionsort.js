@@ -2,25 +2,22 @@
 function func3(j, key, x) {
     delayInMilliseconds += increment;
     setTimeout(function () {
-        for (let i = 0; i < span.length; i++) {
-            span[i].style.backgroundColor = 'yellow';
+        for (let i = 0; i < sizOfArray; i++) {
+            span[i].style.backgroundColor = 'cyan';
         }
 
         span[j + 1].style.backgroundColor = 'red';
-        span[j].style.backgroundColor = 'red';
+        span[j].style.backgroundColor = 'blue';
         setTimeout(function () {
-
-            span[j].innerText = key;
-            span[j + 1].innerText = x;
-            span[j].setAttribute("style", `height:${key * 4 + 10}px`);
-            span[j + 1].setAttribute("style", `height:${x * 4 + 10}px`);
+            span[j].style.height = key * 4 + 10 + 'px';
+            span[j+1].style.height = x * 4 + 10 + 'px';
 
         }, changedelay);
     }, delayInMilliseconds);
 }
 function insertionSort() {
     let i, key, j;
-    for (i = 1; i < n; i++) {
+    for (i = 1; i < sizOfArray; i++) {
         key = arr[i];
         j = i - 1;
         while (j >= 0 && arr[j] > key) {
@@ -35,8 +32,8 @@ const insertionSorting = function () {
     delayInMilliseconds = 0;
     insertionSort();
     setTimeout(function () {
-        for (let i = 0; i < span.length; i++) {
-            span[i].style.backgroundColor = 'yellow';
+        for (let i = 0; i < sizOfArray; i++) {
+            span[i].style.backgroundColor = 'cyan';
         }
         enabling();
     }, delayInMilliseconds + increment);
