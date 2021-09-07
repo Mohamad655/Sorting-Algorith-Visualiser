@@ -39,13 +39,13 @@ var delayInMilliseconds = 0;
 let increment = 1010 - 100 * speedInput.value;
 let changedelay = increment/2;
 console.log(increment);
-speedInput.addEventListener("mouseup",function(){
+speedInput.addEventListener("change",function(){
     increment=1010-100*speedInput.value;
     changedelay = increment / 2;
     console.log(increment);
 });
 
-sizeInput.addEventListener("mouseup", function () {
+sizeInput.addEventListener("change", function () {
     sizOfArray=sizeInput.value;
     generateArray();
 });
@@ -55,12 +55,16 @@ function disabling() {
     bubbleButton.disabled = true;
     resetButton.disabled = true;
     insertionButton.disabled = true;
+    speedInput.disabled=true;
+    sizeInput.disabled=true;
 }
 function enabling() {
     mergeButton.disabled = false;
     bubbleButton.disabled = false;
     resetButton.disabled = false;
     insertionButton.disabled = false;
+    speedInput.disabled = false;
+    sizeInput.disabled = false;
 }
 
 mergeButton.onclick = function () {
